@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vanilla/inherited_widget.dart';
 import 'package:vanilla/screens/counter_screen.dart';
 
 void main() {
@@ -18,20 +19,16 @@ class _VanillaAppState extends State<VanillaApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: CounterScreen(
-          title: 'Flutter Demo Home Page',
-          counter: _counter,
-          increment: () {
-            incrementCounter();
-          },
-          decrement: () {
-            decrementCounter();
-          }),
+    return InheritedCounter(
+      incrementCounter: incrementCounter,
+      decrementCounter: decrementCounter,
+      counter: _counter,
+      child: MaterialApp(
+          title: 'Flutter Demo',
+          theme: ThemeData(
+            primarySwatch: Colors.blue,
+          ),
+          home: const CounterScreen()),
     );
   }
 

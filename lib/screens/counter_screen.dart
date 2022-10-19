@@ -1,19 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:vanilla/inherited_widget.dart';
 
 /// Clase que contiene la UI del contador
 class CounterScreen extends StatefulWidget {
-  const CounterScreen({
-    super.key,
-    required this.title,
-    required this.counter,
-    required this.decrement,
-    required this.increment,
-  });
-
-  final String title;
-  final int counter;
-  final VoidCallback increment;
-  final VoidCallback decrement;
+  const CounterScreen({super.key});
 
   @override
   State<CounterScreen> createState() => _CounterScreenState();
@@ -23,9 +13,7 @@ class _CounterScreenState extends State<CounterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
+      appBar: AppBar(),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -34,7 +22,7 @@ class _CounterScreenState extends State<CounterScreen> {
               'Contador',
             ),
             Text(
-              '${widget.counter}',
+              '${InheritedCounter.of(context).counter}',
               style: Theme.of(context).textTheme.headline4,
             ),
           ],
@@ -44,12 +32,18 @@ class _CounterScreenState extends State<CounterScreen> {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           FloatingActionButton(
-            onPressed: widget.decrement,
+            onPressed: () {
+              setState(() {});
+              InheritedCounter.of(context).decrementCounter();
+            },
             tooltip: 'Decrement',
             child: const Icon(Icons.delete),
           ),
           FloatingActionButton(
-            onPressed: widget.increment,
+            onPressed: () {
+              setState(() {});
+              InheritedCounter.of(context).incrementCounter();
+            },
             tooltip: 'Increment',
             child: const Icon(Icons.add),
           ),
