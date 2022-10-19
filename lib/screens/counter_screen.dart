@@ -21,33 +21,7 @@ class CounterScreen extends StatefulWidget {
 
 class _CounterScreenState extends State<CounterScreen> {
   @override
-  void initState() {
-    super.initState();
-    print('Init State');
-  }
-
-  @override
-  void dispose() {
-    print('Dispose');
-    super.dispose();
-  }
-
-  @override
-  void didUpdateWidget(covariant CounterScreen oldWidget) {
-    print('did Update');
-
-    super.didUpdateWidget(oldWidget);
-  }
-
-  @override
-  void didChangeDependencies() {
-    print('did change');
-    super.didChangeDependencies();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    print('build');
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
@@ -57,7 +31,7 @@ class _CounterScreenState extends State<CounterScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
-              'Yo',
+              'Contador',
             ),
             Text(
               '${widget.counter}',

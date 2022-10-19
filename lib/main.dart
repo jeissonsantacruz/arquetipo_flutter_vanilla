@@ -14,36 +14,10 @@ class VanillaApp extends StatefulWidget {
 }
 
 class _VanillaAppState extends State<VanillaApp> {
-  @override
-  void initState() {
-    super.initState();
-    print('Init State P');
-  }
-
-  @override
-  void dispose() {
-    print('Dispose P');
-    super.dispose();
-  }
-
-  @override
-  void didUpdateWidget(covariant VanillaApp oldWidget) {
-    print('did update P');
-
-    super.didUpdateWidget(oldWidget);
-  }
-
-  @override
-  void didChangeDependencies() {
-    print('did change P');
-    super.didChangeDependencies();
-  }
-
   int _counter = 0;
 
   @override
   Widget build(BuildContext context) {
-    print('build P');
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
